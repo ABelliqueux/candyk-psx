@@ -19,8 +19,10 @@ Example for 1 music file, to be played at 1x CD speed :
 
 Add 4 more 1 null lines for 2x.
 
-`1       xa  menu.xa    1       0`
+```
+   1     xa  menu.xa    1       0  
 sectors type file    xa_file xa_channel
+```
 
 The format seems to correspond to the [entry_t struct](https://github.com/ABelliqueux/candyk-psx/blob/db71929903cc09398f5efc23973f9e136d123bbb/toolsrc/xainterleave/xainterleave.c#L35).
 
