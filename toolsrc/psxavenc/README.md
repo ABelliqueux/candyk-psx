@@ -1,3 +1,4 @@
+```
 ./psxavenc 
 Usage: psxavenc [-f freq] [-b bitdepth] [-c channels] [-F num] [-C num] [-t xa|xacd|spu|str2] <in> <out>
 
@@ -11,6 +12,7 @@ Usage: psxavenc [-f freq] [-b bitdepth] [-c channels] [-F num] [-C num] [-t xa|x
     -c channels      Use specified channel count (1 or 2)
     -F num           [.xa] Set the file number to num (0-255)
     -C num           [.xa] Set the channel number to num (0-31)
+```
 
 You can read it back with `XAPLAY.EXE`, that's in `psyq/bin/XAplay`.
 
