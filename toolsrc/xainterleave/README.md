@@ -2,7 +2,7 @@
 
 Patched by [@impiaaa](https://github.com/impiaaa) : Add mode parameter to use 2336 bytes sectors needed by [mkpsxiso](https://github.com/Lameguy64/mkpsxiso).
 
-Usage: xainterleave <mode> <in.txt> <out.raw>
+Usage: `xainterleave <mode> <in.txt> <out.raw>`
 
 `mode` can be 0 for full raw sectors or 1 for just XA.
 
