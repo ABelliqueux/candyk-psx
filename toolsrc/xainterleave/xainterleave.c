@@ -49,26 +49,21 @@ int parse(char *filename) {
     char fn_str[257];
     int entry_count = 0;
     FILE *file = fopen(filename, "r");
-
     if (file == NULL) return 0;
-    
+
     while (fscanf(file, " %d %64s", &(e.sectors), type_str) > 0) {
         if (strcmp(type_str, "null") == 0) e.type = TYPE_NULL;
         else if (strcmp(type_str, "raw") == 0) e.type = TYPE_RAW;
         else if (strcmp(type_str, "xacd") == 0) e.type = TYPE_XACD;
         else if (strcmp(type_str, "xa") == 0) e.type = TYPE_XA;
-        else { fprintf(stderr, "Unknown stream type: %s\n", type_str); continue; }
-        
+        else { fprintf(stderr, "Unknown type: %s\n", type_str); continue; }
+
         switch (e.type) {
             case TYPE_RAW:
-                fprintf(stderr, "Unsupported stream type, please use xacd in your manifest file.\n", type_str);
             case TYPE_XA:
-                fprintf(stderr, "Unsupported stream type, please use xacd in your manifest file.\n", type_str);
             case TYPE_XACD:
-                    if (fscanf(file, "%256s", fn_str) > 0) {
-                        if ((e.file = fopen(fn_str, "rb")) == NULL) { 
-                            return -1;
-                        }
+                if (fscanf(file, " %256s", fn_str) > 0) {
+                    if ((e.file = fopen(fn_str, "rb")) == NULL) return 0;
                 } else return 0;
                 break;
         }
@@ -95,7 +90,7 @@ int parse(char *filename) {
 
 int main(int argc, char** argv) {
     uint8_t buffer[2352];
-    
+
     if (argc < 4) {
         fprintf(stderr, "Usage: xainterleave <mode> <in.txt> <out.raw>\n");
         return 1;
@@ -107,15 +102,10 @@ int main(int argc, char** argv) {
         return 1;
     }
 
-    int entry_count = parse(argv[3]);
-    if (entry_count == 0) {
+    int entry_count = parse(argv[1]);
+    if (entry_count <= 0) {
         fprintf(stderr, "Empty manifest?\n");
         return 1;
-    } else if (entry_count == -1) {
-        fprintf(stderr, "The Audio file specified in the manifest was not found.\n");
-        return 1;
-    } else {
-        fprintf(stderr, "Manifest file: %s\n", argv[3]);
     }
 
     int sector_div = 0;
@@ -124,7 +114,7 @@ int main(int argc, char** argv) {
     }
     printf("Interleaving into %d-sector chunks\n", sector_div);
 
-    FILE *output = fopen(argv[4], "wb");
+    FILE *output = fopen(argv[2], "wb");
 
     while (1) {
         int can_read = 0;
