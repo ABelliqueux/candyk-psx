@@ -102,7 +102,7 @@ int main(int argc, char** argv) {
         return 1;
     }
 
-    int entry_count = parse(argv[1]);
+    int entry_count = parse(argv[2]);
     if (entry_count <= 0) {
         fprintf(stderr, "Empty manifest?\n");
         return 1;
@@ -114,7 +114,7 @@ int main(int argc, char** argv) {
     }
     printf("Interleaving into %d-sector chunks\n", sector_div);
 
-    FILE *output = fopen(argv[2], "wb");
+    FILE *output = fopen(argv[3], "wb");
 
     while (1) {
         int can_read = 0;
