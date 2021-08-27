@@ -29,6 +29,8 @@ At step **3a**, use the following command :
 make cc ffmpeg
 ```
 
+**If encountering an error due to yasm not building, see here : https://github.com/mxe/mxe/issues/2627#issuecomment-843282994**
+
 You should now have the toolchain in `./mxe/usr/bin`, and libraries and headers in `mxe/usr/i686-w64-mingw32.static/lib` and `mxe/usr/i686-w64-mingw32.static/include` .
 
 ## Compiling
