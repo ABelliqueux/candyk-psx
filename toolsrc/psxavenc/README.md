@@ -14,7 +14,8 @@ Usage: psxavenc [-f freq] [-b bitdepth] [-c channels] [-F num] [-C num] [-t xa|x
     -C num           [.xa] Set the channel number to num (0-31)
 ```
 
-You can read it back with `XAPLAY.EXE`, that's in `psyq/bin/XAplay`.
+You can read it back with `XAPLAY.EXE`, that's in `psyq/bin/XAplay`.  
+You can use [`MOVPACK.EXE`](https://psx.arthus.net/tools/pimp-psx.zip) or [xainterleave](https://github.com/ABelliqueux/candyk-psx/tree/master/toolsrc/xainterleave) to interleave several PSX media files.
 
 # Cross compiling Windows binaries from Linux
 
@@ -54,6 +55,10 @@ make tools NATIVE_CFLAGS="-O2 -g -I./../../../mxe/usr/i686-w64-mingw32.static/in
 
 ## Pre-built binaries
 
-Pre-built win32 binaries are available here : http://psx.arthus.net/sdk/candyk-psx-tools.zip
+Pre-built win32 binaries are available here : http://psx.arthus.net/sdk/candyk-psx-tools.zip , courtesy of @nicolasnoble.
 
-You can use [`MOVPACK.EXE`](https://psx.arthus.net/tools/pimp-psx.zip) or [xainterleave](https://github.com/ABelliqueux/candyk-psx/tree/master/toolsrc/xainterleave) to interleave several PSX media files.
+# Source & thanks
+@nicolasnoble for guiding through the process and investigating the needed libs, and providing pre-built binaries !
+
+https://discord.com/channels/642647820683444236/642848592754901033/880571296231096381  
+
