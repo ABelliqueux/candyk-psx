@@ -30,11 +30,15 @@ make cc ffmpeg
 
 You should now have the toolchain in `./mxe/usr/bin`, and libraries and headers in `mxe/usr/i686-w64-mingw32.static/lib` and `mxe/usr/i686-w64-mingw32.static/include` .
 
+## Compiling
+
 You can now build windows 32b binaries by using the toolchain in `./mxe/usr/bin`, e.g:
 
 ```bash
 ./mxe/usr/bin/i686-w64-mingw32.static-gcc -o xainterleave.exe xainterleave.c
 ```
+
+## psxavenc
 
 A makefile is provided to build `psxavenc.exe` as the process is more involved (ffmpeg dependencies) but mainly :
 
@@ -47,5 +51,9 @@ A makefile is provided to build `psxavenc.exe` as the process is more involved (
 ```bash
 make tools NATIVE_CFLAGS="-O2 -g -I./../../../mxe/usr/i686-w64-mingw32.static/include" NATIVE_LDFLAGS="-O2 -g -L./../../../mxe/usr/i686-w64-mingw32.static/lib" CC=./../../../mxe/usr/bin/i686-w64-mingw32.static-gcc
 ```  
+
+## Pre-built binaries
+
+Pre-built win32 binaries are available here : http://psx.arthus.net/sdk/candyk-psx-tools.zip
 
 You can use [`MOVPACK.EXE`](https://psx.arthus.net/tools/pimp-psx.zip) or [xainterleave](https://github.com/ABelliqueux/candyk-psx/tree/master/toolsrc/xainterleave) to interleave several PSX media files.
